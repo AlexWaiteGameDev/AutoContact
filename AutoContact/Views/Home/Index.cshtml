@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@ViewData["Title"] - AutoContactApp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        .vertical-center {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .header1 {
+            margin-bottom: -5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .header2 {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column h-100 bg-dark">
+    <div class="container vertical-center px-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="my-5 text-xl-start">
+                    <h1 class="header1 text-white">Welcome to <b>AutoContact</b>!</h1>
+                    <h3 class="header2 fw-normal text-white-50">Please Sign in</h3>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-xl-start">
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3 mr-3" href="~/Home/ClientLogin">Sign in as Client</a>
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3 mr-3" href="~/Home/AdminLogin">Sign in as Employee</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="~/images/tools.png" alt="Sample image" /></div>
+        </div>
+    </div>
+
+</body>
+</html>

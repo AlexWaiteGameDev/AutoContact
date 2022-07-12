@@ -1,0 +1,27 @@
+﻿@{
+    string layout = "";
+    string authLevel = this.User.Claims.Where(x => x.Type == ClaimTypes.Role).FirstOrDefault()?.Value; //need to actually set this once user logs in ; //need to actually set this once user logs in 
+    // string authLevel = "Admin"; 
+
+
+    switch (authLevel)
+    {
+        case "Client":
+            layout = "~/Views/Shared/_ClientLayout.cshtml";
+            break;
+
+        case "Employee":
+            layout = "~/Views/Shared/_MechanicLayout.cshtml";
+            break;
+
+        case "Admin":
+            layout = "~/Views/Shared/_AdminLayout.cshtml";
+            break;
+
+        default:
+            layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
+
+    Layout = layout;
+}

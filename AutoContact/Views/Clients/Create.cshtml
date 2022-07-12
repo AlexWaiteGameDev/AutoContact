@@ -1,0 +1,152 @@
+﻿@model AutoContact.Models.Client
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            color: #8e9194;
+            background-color: #f4f6f9;
+        }
+
+        .text-muted {
+            color: #aeb0b4 !important;
+        }
+
+        .text-muted {
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div>
+                    <h1 class="mt-4">New Client</h1>
+
+                    <hr class="my-4" />
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="FirstName"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="LastName"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="PhoneNum"></label>
+                            <input asp-for="PhoneNum" class="form-control" />
+                            <span asp-validation-for="PhoneNum" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BirthDate"></label>
+                        <input asp-for="BirthDate" class="form-control" />
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <!-- Address -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Address.StreetNum"></label>
+                            <input asp-for="Address.StreetNum" class="form-control" />
+                            <span asp-validation-for="Address.StreetNum" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Address.StreetName"></label>
+                            <input asp-for="Address.StreetName" class="form-control" />
+                            <span asp-validation-for="Address.StreetName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Address.UnitNum"></label>
+                            <input asp-for="Address.UnitNum" class="form-control" />
+                            <span asp-validation-for="Address.UnitNum" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Address.CityName"></label>
+                            <input asp-for="Address.CityName" class="form-control" />
+                            <span asp-validation-for="Address.CityName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Address.ProvinceName"></label>
+                            <input asp-for="Address.ProvinceName" class="form-control" />
+                            <span asp-validation-for="Address.ProvinceName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Address.Country"></label>
+                            <input asp-for="Address.Country" class="form-control" />
+                            <span asp-validation-for="Address.Country" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="DriverLicence"></label>
+                            <input asp-for="DriverLicence" class="form-control" />
+                            <span asp-validation-for="DriverLicence" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Password"></label>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <span id="ShowPassword" class="bi bi-eye-fill"></span>
+                                    </div>
+                                </div>
+                                <input asp-for="Password" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <button class="btn btn-primary" type="submit" value="Create">Create</button>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            //CheckBox Show Password
+            $('#ShowPassword').click(function () {
+                $('#Password').attr('type', (_, attr) => attr == 'password' ? 'text' : 'password');
+                $(this).toggleClass('bi-eye-fill').toggleClass('bi-eye-slash-fill');
+            });
+        });
+    </script>
+}
